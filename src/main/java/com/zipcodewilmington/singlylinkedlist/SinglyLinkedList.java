@@ -5,13 +5,33 @@ package com.zipcodewilmington.singlylinkedlist;
  */
 public class SinglyLinkedList {
 
-        public static void add (Integer info){ }
+        Node head;
+        Node tail;
+        int size = 0;
 
-        public static void remove(Integer info){}
+        public static void add(Integer info) {
+        }
 
-        public  static void find(Integer number){}
+        public static void remove(Integer info) {
+        }
 
-        public Boolean contains(Integer num){ return null; }
+        public static void find(Integer number) {
+        }
+
+        public Boolean contains(Integer num) {
+                return null;
+        }
 
 
+        public SinglyLinkedList copy() {
+                SinglyLinkedList newList = new SinglyLinkedList();
+                Node node = head;
+                while (node != null) {
+                        newList.add(node.getData());
+                        node = node.getNext();
+
+                }
+
+                return newList;
+        }
 }
