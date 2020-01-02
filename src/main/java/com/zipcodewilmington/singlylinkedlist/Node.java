@@ -1,9 +1,10 @@
 package com.zipcodewilmington.singlylinkedlist;
 
 public class Node {
-        private Node next;
-        private Node prev;
-        private Integer data;
+    public Node prev;
+    public Node next;
+
+    public Integer data;
 
      public Node(Node next , Node prev , Integer data) {
          this.data = data;

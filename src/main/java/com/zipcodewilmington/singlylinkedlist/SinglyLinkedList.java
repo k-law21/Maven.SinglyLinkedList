@@ -5,24 +5,63 @@ package com.zipcodewilmington.singlylinkedlist;
  */
 public class SinglyLinkedList {
 
-        Node head;
-        Node tail;
-        int size = 0;
+        static Node head;
+        static Node tail;
+        static int size = 0;
 
-        public static void add(Integer info) {
+        public void add(Integer info) {
+                size++;
+                if (head == null) {
+                        head = new Node(null, null, info);
+                        tail = head;
+                } else {
+                        Node node = new Node(head, null, info);
+                        head.prev = node;
+                        this.head = node;
+                }
         }
 
         public static void remove(Integer info) {
+                if (head != null) {
+                        size--;
+                        if (tail.prev != null) {
+                                tail.prev.next = null;
+                                tail = tail.prev;
+                        } else {
+                                head = null;
+                                tail = null;
+                        }
+                }
         }
 
-        public static void find(Integer number) {
+
+
+        public static int find(Integer num) {
+                int index = 0;
+                if (num == null) {
+                        for (Node x = head; x != null; x = x.next) {
+                                if (x.getData() == null) {
+                                        return index;
+                                }
+                                index++;
+                        }
+                } else {
+                        for (Node x = head; x != null; x = x.next) {
+                                if (num.equals(x.getData())) {
+                                        return index;
+                                }
+                                index++;
+                        }
+                }
+                return -1;
         }
 
         public Boolean contains(Integer num) {
                 return null;
         }
-
-
+        public Integer size() {
+                return this.size;
+        }
         public SinglyLinkedList copy() {
                 SinglyLinkedList newList = new SinglyLinkedList();
                 Node node = head;
